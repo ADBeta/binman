@@ -6,8 +6,27 @@
 *
 * This project is under GNU Public Licence.
 * (c) 2023 ADBeta
-*
-* v0.0.1
 *******************************************************************************/
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <cstring>
 
 #include "binman.hpp"
+
+binman::binman(const char *fn) {
+	//Create a char array at m_filename the size of the input string.
+	this->filename = new char[ strlen(fn) + 1 ];
+	
+	//Copy the input string to the new char array at m_filename
+	strcpy(this->filename, fn);
+}
+
+binman::binman(const std::string fn) {
+	//Create a char array at m_filename the size of the input string.
+	this->filename = new char[ fn.size() + 1 ];
+
+	//Copy the input string to the new char array at m_filename
+	strcpy(this->filename, fn.c_str());
+} 
+

@@ -1,13 +1,14 @@
 # binman
-binman is a Binary File Manager library for C++. Simply include the .cpp and .hpp  
-files in your project.  
 
-binman has been designed to be as lightweight, while being as powerful as possible,  
-It can read, write and modify binary files of any kind.
+binman is a Binary File Manager library for C++, designed with low-overhead and 
+high speed in mind. It suppots creation and opening of files, deleting, appending
+and modifying binary data in any file. Close attention had been paid to avoiding
+memory mismanagement.  
 
-## Description
+This library will work on systems as old as C++11 and possibly older (NOTE)
 
 ## How To Use
+Include binman.hpp and binman.cpp in their respective places in your project.  
 
 ## TO-DO 
 
