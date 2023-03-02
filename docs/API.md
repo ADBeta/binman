@@ -20,7 +20,7 @@ file.read()
 This will read the file using the filename into the RAM array. If this fails it
 will return non-zero, and print an error message. you can detect failure like this
 ```C++
-if( file.read() != 0) exit(EXIT_FAILURE;
+if( file.read() != 0) exit(EXIT_FAILURE);
 ```
 
 To print the files data (Hex dump) to the terminal, you can use the `print()` 
