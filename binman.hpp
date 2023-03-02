@@ -9,10 +9,11 @@
 * 
 * Notes:
 *
-* 1 March 2023
-* v0.1.3
+* 2 March 2023
+* v0.3.6
 *******************************************************************************/
 #include <string>
+#include <fstream>
 
 #ifndef H_BINMAN
 #define H_BINMAN
@@ -26,13 +27,25 @@ class binman {
 	
 	//Desctructor
 	~binman();
-	/*** File management ******************************************************/
+	/*** File Management ******************************************************/
 	//Reads input file into the RAM array
 	int read();
+	
+	//Print a section or all of the binary file, pass offset and bytes to print 
+	//Default call prints the whole file to the terminal
+	void print(size_t offset = 0, size_t n = 0);
 
 
 	/*** Private class variables **********************************************/
 	//private: TODO
+	/*** Config Variables *****************************************************/
+	bool confVerbose = true;
+	
+	
+	/*** File Variables *******************************************************/
+	//File object
+	std::fstream file;
+	
 	//Filename of the input/output file
 	char *filename;
 	
@@ -43,13 +56,16 @@ class binman {
 	
 	/*** RAM Manager **********************************************************/
 	//Allocate the RAM array, deletes the data previously pointed to
-	int allocMem(size_t bytes);	
+	int allocMem(const size_t bytes);	
 	//Resize the RAM array directly
-	int resizeMem(size_t newBytes);
+	int resizeMem(const size_t newBytes);
 	//Resizes the RAM array via incrememnt or decrement
-	int incMem(size_t incBytes);
-	int decMem(size_t decBytes);
+	int incMem(const size_t incBytes);
+	int decMem(const size_t decBytes);
 	
+	/*** Util functions *******************************************************/
+	//Converts an int to HEX Uppercase value and pads it with 0's
+	std::string toHexString(const size_t val, unsigned int pad);
 
 }; //class binman
 
